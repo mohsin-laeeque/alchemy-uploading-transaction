@@ -1,0 +1,70 @@
+{
+  "status": "prepared run",
+  "meta_transaction": {
+    "from": "0x05FCe68d0E0832aaDD0887B2c36E7fe52E699d6b",
+    "to": "0x64657acB9C69Ef82fE1CB8187209aDB737770d60",
+    "value": "0x0",
+    "nonce": "0x0",
+    "gas": "0x1e8480",
+    "gasPrice": "0x6fc23ac0",
+   "Input": {
+  "document": {
+    "version": "1.0",
+    "date": "2024-07-29",
+    "id": "DA-LPBC-000019-KORE6",
+    "internationalBillOfExchange": {
+      "billNumber": "DA-LPBC-000019-KORE6",
+      "dateOfIssue": "2024-07-29",
+      "issuer": {
+        "name": "ORGANISATION xxxxxxxxxxxxxx",
+        "address": "19xx Broadway Street Ste xxxxc, xxxxxxxxxx, CO 80302",
+        "contactPerson": "See Corporate Update for Current Officers",
+        "title": "Director, Banking or Compliance Officer",
+        "email": "banking@xxxx.org",
+        "phone": "(877) xxx-xxxx"
+      },
+      "payee": {
+        "name": "Payee name",
+        "reference": "20242029991-xxxxxx"
+      },
+      "currency": "EURO",
+      "amount": 100,
+      "triangulatedFunds": "M00 GRU",
+      "termsAndConditions": [],  
+      "custodianAndDepository": {}, 
+      "issuerConfirmation": {},  
+      "digitalSignature": {
+        "hashAlgorithm": "SHA-256",
+        "hashValue": "cf23df2207d99a74fbe169e3e38b9fc3a0f65b22d5f6c0e06117239d3e0123f5",
+        "base64Encoding": "Y2YyM2RmMjIwN2Q5OWE3NGZiZTE2OWUzZTM4YjlmYzNhMGY2NWIyMmQ1ZjZjMGUwNjExNzIzOWQzZTAxMjNmNQ=="
+      }
+    }
+  }
+}, 
+ "data": "0x2a6a935d020000000000000000000000000000000000000000000000000000000000000087f017f70f3be6b71d337442c302c04f72884e02b7044ad60c7aaedb13eb0ce80000000000000000000000002d278be955146f094dd6e4dc5cc5868943d15baf000000000000000000000000c02aaa39b223fe8d0a0e5c4f27ead9083c756cc2000000000000000000000000f90924b4064d88fdf9189d6ffd737ed85c01b9b70000000000000000000000000000000000000000000000000000000000000200000000000000000000000000000000000000000000000436c7fa35480170000000000000000000000000000000000000000000000000000004a7ef78f224c000ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff0000000000000000000000000000000000000000000000000e043da617250000000000000000000000000000000000000000000000000000000009184e72a000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000617a42c906580000000000000000000000000000000000000000000000000000000000000000002000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000040000000000000000000000007ede4307271be610b11ce467affa615303390b15000000000000000000000000554134235c4c86d4ed271c6ee0c5ae8909eee061000000000000000000000000a6047bce57d14d4d505aac73ad5a7e152f9c5588000000000000000000000000951f044643884ac9e16db6dcee4f30a5c3f1bfc5",
+    "chainId": "0x1"
+  },
+  "signature": {
+    "v": "0x25",
+    "r": "0x8dc7a19c1d3a93aa2a68652ab0943f77ee76cd1a767cb3206d9e6d6282576890",
+    "s": "0x7379712152df9017abdbafc87ed576ca44383f404516916b1d37441cef17bd7e"
+  },
+  "zk_snark_proof": "845aa1baf120577b460d9a969ccd2a9fc62e79771a673aeadb1a6c810e2c6b8a",
+  "hash": "0x4f5659a6b2d60cb7b2290d5d94b9c7c5c864e2f4b3f7b4f5a3e6d2f7b4",
+  "timestamp": 1643723900,
+  "transaction_id": "TX1234567890",
+  "transaction_type": "send",
+  "category": "payment",
+  "sender_wallet": {
+    "address": "0x3f60b0ff109E39c6820779Ff00e7278Ed80505d3",
+    "balance": "1000.00 GRU",
+    "chain": "GRU Eth Chain 138",
+    "currency": "GRU"
+  },
+  "receiver_wallet": {
+    "address": "0x64657acB9C69Ef82fE1CB8187209aDB737770d60",
+    "balance": "500.00 GRU",
+    "chain": "GRU Eth Chain 138",
+    "currency": "GRU"
+  }
+}
