@@ -23,23 +23,32 @@ const sendTransaction = async (filePath) => {
       throw new Error('Transaction details are undefined in the JSON data.');
     }
     const walletAddress = await wallet.getAddress(); 
-    console.log("Wallet Address:", walletAddress);
-
     const balance = await alchemy.core.getBalance(walletAddress);
-    console.log("Balance:", Utils.formatEther(balance));
+    const currentNonce = await alchemy.core.getTransactionCount(walletAddress, "latest");
+    const priorityGasFee = await alchemy.transact.getMaxPriorityFeePerGas();
+    const latestBlock = await alchemy.core.getBlock("latest");
+    const baseFeePerGas = latestBlock.baseFeePerGas;
+    const maxFeePerGas = Utils.parseUnits((parseFloat(Utils.formatUnits(baseFeePerGas, "gwei")) + parseFloat(Utils.formatUnits(priorityGasFee, "gwei")) + 2).toString(), "gwei");
+
+    // Calculate Estimate Gas
+    const params = {
+      to: transactionDetails.to,
+      data: transactionDetails.data,
+      value: transactionDetails.value,
+    };
+    const estimateGas = await alchemy.transact.estimateGas(params);
 
     const transaction = {
       from: transactionDetails.from, 
       to: transactionDetails.to, 
       value: parseInt(transactionDetails.value, 16), 
-      gasLimit: parseInt(transactionDetails.gas, 16),
-      maxPriorityFeePerGas: Utils.parseUnits("1.875", "gwei"),
-      maxFeePerGas: Utils.parseUnits("2.5", "gwei"),
-      nonce: parseInt(transactionDetails.nonce, 16),
+      gasLimit: estimateGas,
+      maxPriorityFeePerGas: priorityGasFee,
+      maxFeePerGas: maxFeePerGas,
+      nonce: currentNonce,
       type: 2, 
       chainId: parseInt(transactionDetails.chainId, 16),
     };
-
     // Sign the transaction with the wallet
     const rawTransaction = await wallet.signTransaction(transaction);
     const response = await alchemy.transact.sendTransaction(rawTransaction);   
