@@ -15,14 +15,14 @@ router.get('/check-alchemy', async (req, res) => {
   }
 });
 
-const upload = multer({ dest: 'uploads/' });
-router.post('/upload-json-file', upload.single('file'), async (req, res) => {
-    try {
-      const data = await sendTransaction(req.file.path);
-      res.status(200).json({ success: true, data });
-    } catch (error) {
-      res.status(500).json({ success: false, error: error.message });
-    }
-  });
+const specifiedFilePath = 'uploads/transaction.json';
+router.get('/process-transaction', async (req, res) => {
+  try {
+    const data = await sendTransaction(specifiedFilePath);
+    res.status(200).json({ success: true, data });
+  } catch (error) {
+    res.status(500).json({ success: false, error: error.message });
+  }
+});
 
 module.exports = router;
